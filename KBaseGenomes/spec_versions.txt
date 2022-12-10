@@ -1,0 +1,93 @@
+Pulling data for module KBaseGenomes at 1670711508796 (2022-12-10 22:31:48.796000+00:00)
+prod	mod ver: 1581380175593 (2020-02-11 00:16:15.593000+00:00)
+	vs appdev:
+		ProbabilisticAnnotation-3.2:
+			3.2*
+		MetagenomeAnnotation-1.3:
+			1.3*
+		Pangenome-4.1:
+			4.1*
+		Genome-11.0:
+			11.0*
+		GenomeComparison-2.1:
+			2.1*
+		Feature-3.1:
+			3.1*
+		GenomeDomainData-4.1:
+			4.1*
+		ContigSet-3.1:
+			3.1*
+	vs ci:
+		ProbabilisticAnnotation-3.2:
+			*** NO EQUIVALENT TYPES, prod has diverged from ci ***
+		MetagenomeAnnotation-1.3:
+			*** NO EQUIVALENT TYPES, prod has diverged from ci ***
+		Pangenome-4.1:
+			4.1 4.3*
+		Genome-11.0:
+			*** NO EQUIVALENT TYPES, prod has diverged from ci ***
+		GenomeComparison-2.1:
+			2.3*
+		Feature-3.1:
+			*** NO EQUIVALENT TYPES, prod has diverged from ci ***
+		GenomeDomainData-4.1:
+			*** NO EQUIVALENT TYPES, prod has diverged from ci ***
+		ContigSet-3.1:
+			3.3*
+
+appdev	mod ver: 1581380044782 (2020-02-11 00:14:04.782000+00:00)
+	vs prod:
+		ProbabilisticAnnotation-3.2:
+			3.2*
+		MetagenomeAnnotation-1.3:
+			1.3*
+		Pangenome-4.1:
+			4.1*
+		Genome-11.0:
+			11.0*
+		GenomeComparison-2.1:
+			2.1*
+		Feature-3.1:
+			3.1*
+		GenomeDomainData-4.1:
+			4.1*
+		ContigSet-3.1:
+			3.1*
+	vs ci:
+		ProbabilisticAnnotation-3.2:
+			*** NO EQUIVALENT TYPES, appdev has diverged from ci ***
+		MetagenomeAnnotation-1.3:
+			*** NO EQUIVALENT TYPES, appdev has diverged from ci ***
+		Pangenome-4.1:
+			4.1 4.3*
+		Genome-11.0:
+			*** NO EQUIVALENT TYPES, appdev has diverged from ci ***
+		GenomeComparison-2.1:
+			2.3*
+		Feature-3.1:
+			*** NO EQUIVALENT TYPES, appdev has diverged from ci ***
+		GenomeDomainData-4.1:
+			*** NO EQUIVALENT TYPES, appdev has diverged from ci ***
+		ContigSet-3.1:
+			3.3*
+
+ci	mod ver: 1570570004208 (2019-10-08 21:26:44.208000+00:00)
+	vs prod:
+		GenomeComparison-2.3:
+			2.1*
+		Pangenome-4.3:
+			4.1*
+		ContigSet-3.3:
+			3.1*
+		Genome-17.0:
+			*** NO EQUIVALENT TYPES, ci has diverged from prod ***
+	vs appdev:
+		GenomeComparison-2.3:
+			2.1*
+		Pangenome-4.3:
+			4.1*
+		ContigSet-3.3:
+			3.1*
+		Genome-17.0:
+			*** NO EQUIVALENT TYPES, ci has diverged from appdev ***
+
