@@ -13,7 +13,7 @@ change review and version checking.
 
 ## Spec versions script
 
-`spec_versions/check_versions.py` is a quick, dirty, and unittestless type verison checking
+`spec_versions/check_versions.py` is a quick, dirty, and unittestless type version checking
 script that compares type versions across the KBase `prod`, `appdev`, and `ci` environments.
 Assuming it runs correctly, it will flag when environments have diverged from each other for
 a particular type spec. To run it, python 3.7+ is required. Example:
