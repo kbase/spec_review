@@ -57,17 +57,18 @@ def no_mod(type_: str):
     return type_.split('.', 1)[1]
 
 
-def main():
-    mod = sys.argv[1]
-    tstmp = math.floor(time.time() * 1000)
-    print(f"Pulling data for module {mod} at {tstmp} ({dt_from_ms_epoch(tstmp)})")
+def pull_data(mod: str):
     ts = defaultdict(dict)
     for env in URLS:
         ts[env][env] = get_spec_info(mod, URLS[env])
     for env in URLS:
+        # could merge the 2 requests into one to slightly speed things up... meh
         for env2 in (set(URLS.keys()) - set([env])):
             ts[env][env2] = get_equivalent_types(ts[env][env]['types'], URLS[env2])
+    return ts
 
+
+def print_data(ts):
     for env in URLS:
         ver = ts[env][env]['ver']
         print(f"{env}\tmod ver: {ver} ({dt_from_ms_epoch(ver)})")
@@ -81,13 +82,27 @@ def main():
                     print(f"\t\t\t*** NO EQUIVALENT TYPES, {env} has diverged from {env2} ***")
                 else:
                     suffix = ""
-                    env2currentver = env2currentvers[t.split('-')[0]]
+                    # if a type has been released and then removed (either by deleting it from
+                    # the spec or using the remove_types argument when registering) there may
+                    # be types returned from the translate MD5 type -> regular type step
+                    # but no current type version
+                    env2currentver = env2currentvers.get(t.split('-')[0])
                     if env2currentver not in env2vers:
-                        suffix = f" *** NO MATCH TO CURRENT VER: {env2currentver} ***"
+                        suffix = (" *** NO MATCH TO CURRENT VER: "
+                            + f"{env2currentver or 'No current version'} ***")
                     else:
                         env2vers = [x + "*" if x == env2currentver else x for x in env2vers]
                     print(f"\t\t\t{' '.join(env2vers)}{suffix}")
         print()
+
+
+def main():
+    mod = sys.argv[1]
+    tstmp = math.floor(time.time() * 1000)
+    print(f"Pulling data for module {mod} at {tstmp} ({dt_from_ms_epoch(tstmp)})")
+    ts = pull_data(mod)
+    print_data(ts)
+    print("* = current version")
 
 
 if __name__ == "__main__":
