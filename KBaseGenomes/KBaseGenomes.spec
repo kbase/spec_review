@@ -543,6 +543,7 @@ module KBaseGenomes {
 
     lineage - the lineage string from the data source. For example, for GTDB:
         d__Bacteria;p__Proteobacteria;c__Gammaproteobacteria;o__Enterobacterales;f__Enterobacteriaceae;g__Escherichia;s__Escherichia coli
+    source_ver - the version of the source data. For example, for GTDB: r207
     taxon_id - the ID of the taxon to which the genome belongs. For example, for GTDB:
         s__Escherichia coli
     source_id - the ID of the genome at the source. For example, for GTDB: RS_GCF_000566285.1.
@@ -550,6 +551,7 @@ module KBaseGenomes {
     */
     typedef structure {
         string lineage;
+        string source_ver;
         string taxon_id;
         string source_id;
     } Lineage;
@@ -660,9 +662,11 @@ module KBaseGenomes {
     @metadata ws length(warnings) as Number of Genome Level Warnings
     @metadata ws suspect as Suspect Genome
     @metadata ws std_lineages.ncbi.lineage as NCBI_lineage
+    @metadata ws std_lineages.ncbi.source_ver as NCBI_source_ver
     @metadata ws std_lineages.ncbi.taxon_id as NCBI_taxon_id
     @metadata ws std_lineages.ncbi.source_id as NCBI_source_id
     @metadata ws std_lineages.gtdb.lineage as GTDB_lineage
+    @metadata ws std_lineages.gtdb.source_ver as GTDB_source_ver
     @metadata ws std_lineages.gtdb.taxon_id as GTDB_taxon_id
     @metadata ws std_lineages.gtdb.source_id as GTDB_source_id
     */
