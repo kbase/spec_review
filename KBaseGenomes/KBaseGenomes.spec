@@ -547,7 +547,11 @@ module KBaseGenomes {
     taxon_id - the ID of the taxon to which the genome belongs. For example, for GTDB:
         s__Escherichia coli
     source_id - the ID of the genome at the source. For example, for GTDB: RS_GCF_000566285.1.
-        In some cases this may be the same as the taxon_id.
+        In some cases this may be the same as the taxon_id. Expceted to be present for genomes
+        that are part of the data set, but not for genomes that are inserted into the
+        taxonomy tree (by gtdb_tk, for instance).
+
+    @optional source_id
     */
     typedef structure {
         string lineage;

@@ -141,7 +141,11 @@ typedef string fasta_handle_ref;
     taxon_id - the ID of the taxon to which the assembly belongs. For example, for GTDB:
         s__Escherichia coli
     source_id - the ID of the assembly at the source. For example, for GTDB: RS_GCF_000566285.1.
-        In some cases this may be the same as the taxon_id.
+        In some cases this may be the same as the taxon_id. Expceted to be present for assemblies
+        that are part of the source data set, but not for assemblies that are inserted into the
+        taxonomy tree (by gtdb_tk, for instance).
+
+    @optional source_id
 */
 typedef structure {
     string lineage;
