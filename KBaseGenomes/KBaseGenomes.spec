@@ -543,7 +543,7 @@ module KBaseGenomes {
 
     lineage - the lineage string from the data source. For example, for GTDB:
         d__Bacteria;p__Proteobacteria;c__Gammaproteobacteria;o__Enterobacterales;f__Enterobacteriaceae;g__Escherichia;s__Escherichia coli
-    source_ver - the version of the source data. For example, for GTDB: r207
+    source_ver - the version of the source data. For example, for GTDB: 207.0
     taxon_id - the ID of the taxon to which the genome belongs. For example, for GTDB:
         s__Escherichia coli
     source_id - the ID of the genome at the source. For example, for GTDB: RS_GCF_000566285.1.
