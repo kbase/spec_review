@@ -139,7 +139,8 @@ typedef string fasta_handle_ref;
         d__Bacteria;p__Proteobacteria;c__Gammaproteobacteria;o__Enterobacterales;f__Enterobacteriaceae;g__Escherichia;s__Escherichia coli
     source_ver - the version of the source data. For example, for GTDB: 207.0
     taxon_id - the ID of the taxon to which the assembly belongs. For example, for GTDB:
-        s__Escherichia coli
+        f__Enterobacteriaceae. Note that while ideally this will be a leaf in the taxonomy tree,
+        that is not necessarily the case and the taxon_id may be an internal node.
     source_id - the ID of the assembly at the source. For example, for GTDB: RS_GCF_000566285.1.
         In some cases this may be the same as the taxon_id. Expected to be present for assemblies
         that are part of the source data set, but not for assemblies that are inserted into the
