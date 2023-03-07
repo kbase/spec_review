@@ -137,6 +137,9 @@ typedef string fasta_handle_ref;
 
     lineage - the lineage string from the data source. For example, for GTDB:
         d__Bacteria;p__Proteobacteria;c__Gammaproteobacteria;o__Enterobacterales;f__Enterobacteriaceae;g__Escherichia;s__Escherichia coli
+        For GTDB, if the lineage is not fully resolved, enter the string in GTDB style
+        including the unresolved ranks, e.g.
+        d__Bacteria;p__Proteobacteria;c__Gammaproteobacteria;o__Enterobacterales;f__;g__;s__
     source_ver - the version of the source data. For example, for GTDB: 207.0
     taxon_id - the ID of the taxon to which the assembly belongs. For example, for GTDB:
         f__Enterobacteriaceae. Note that while ideally this will be a leaf in the taxonomy tree,
