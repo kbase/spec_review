@@ -1,5 +1,5 @@
-Pulling data for module KBaseGenomeAnnotations at 1670727209405 (2022-12-11 02:53:29.405000+00:00)
-prod	mod ver: 1492703505699 (2017-04-20 15:51:45.699000+00:00)
+Pulling data for module KBaseGenomeAnnotations at 1682988642843 (2023-05-02 00:50:42.843000+00:00)
+prod	mod ver: 1682988357361 (2023-05-02 00:45:57.361000+00:00)
 	vs appdev:
 		Taxon-1.0:
 			0.1 1.0*
@@ -7,8 +7,8 @@ prod	mod ver: 1492703505699 (2017-04-20 15:51:45.699000+00:00)
 			0.1 1.0*
 		TaxonSet-1.0:
 			0.1 1.0*
-		Assembly-5.0:
-			3.0*
+		Assembly-5.1:
+			3.1*
 	vs ci:
 		Taxon-1.0:
 			0.1 1.0*
@@ -16,21 +16,10 @@ prod	mod ver: 1492703505699 (2017-04-20 15:51:45.699000+00:00)
 			2.0*
 		TaxonSet-1.0:
 			0.1 1.0*
-		Assembly-5.0:
-			6.0*
+		Assembly-5.1:
+			6.1 6.3*
 
-appdev	mod ver: 1492703480408 (2017-04-20 15:51:20.408000+00:00)
-	vs prod:
-		Taxon-1.0:
-			0.1 1.0*
-		TaxonLookup-1.0:
-			0.1 1.0*
-		TaxonSet-1.0:
-			0.1 1.0*
-		GenomeAnnotationSummary-2.0:
-			*** NO EQUIVALENT TYPES, appdev has diverged from prod ***
-		Assembly-3.0:
-			5.0*
+appdev	mod ver: 1682987461419 (2023-05-02 00:31:01.419000+00:00)
 	vs ci:
 		Taxon-1.0:
 			0.1 1.0*
@@ -40,19 +29,21 @@ appdev	mod ver: 1492703480408 (2017-04-20 15:51:20.408000+00:00)
 			0.1 1.0*
 		GenomeAnnotationSummary-2.0:
 			6.0 *** NO MATCH TO CURRENT VER: No current version ***
-		Assembly-3.0:
-			6.0*
-
-ci	mod ver: 1491941889188 (2017-04-11 20:18:09.188000+00:00)
+		Assembly-3.1:
+			6.1 6.3*
 	vs prod:
 		Taxon-1.0:
 			0.1 1.0*
-		TaxonLookup-2.0:
+		TaxonLookup-1.0:
 			0.1 1.0*
 		TaxonSet-1.0:
 			0.1 1.0*
-		Assembly-6.0:
-			5.0*
+		GenomeAnnotationSummary-2.0:
+			*** NO EQUIVALENT TYPES, appdev has diverged from prod ***
+		Assembly-3.1:
+			5.1*
+
+ci	mod ver: 1678393266454 (2023-03-09 20:21:06.454000+00:00)
 	vs appdev:
 		Taxon-1.0:
 			0.1 1.0*
@@ -60,7 +51,16 @@ ci	mod ver: 1491941889188 (2017-04-11 20:18:09.188000+00:00)
 			0.1 1.0*
 		TaxonSet-1.0:
 			0.1 1.0*
-		Assembly-6.0:
-			3.0*
+		Assembly-6.3:
+			3.1*
+	vs prod:
+		Taxon-1.0:
+			0.1 1.0*
+		TaxonLookup-2.0:
+			0.1 1.0*
+		TaxonSet-1.0:
+			0.1 1.0*
+		Assembly-6.3:
+			5.1*
 
 * = current version

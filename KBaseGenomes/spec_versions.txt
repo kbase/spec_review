@@ -1,5 +1,5 @@
-Pulling data for module KBaseGenomes at 1670711508796 (2022-12-10 22:31:48.796000+00:00)
-prod	mod ver: 1581380175593 (2020-02-11 00:16:15.593000+00:00)
+Pulling data for module KBaseGenomes at 1682988664233 (2023-05-02 00:51:04.233000+00:00)
+prod	mod ver: 1682988509576 (2023-05-02 00:48:29.576000+00:00)
 	vs appdev:
 		ProbabilisticAnnotation-3.2:
 			3.2*
@@ -7,8 +7,8 @@ prod	mod ver: 1581380175593 (2020-02-11 00:16:15.593000+00:00)
 			1.3*
 		Pangenome-4.1:
 			4.1*
-		Genome-11.0:
-			11.0*
+		Genome-11.1:
+			11.1*
 		GenomeComparison-2.1:
 			2.1*
 		Feature-3.1:
@@ -19,23 +19,23 @@ prod	mod ver: 1581380175593 (2020-02-11 00:16:15.593000+00:00)
 			3.1*
 	vs ci:
 		ProbabilisticAnnotation-3.2:
-			*** NO EQUIVALENT TYPES, prod has diverged from ci ***
+			3.1*
 		MetagenomeAnnotation-1.3:
-			*** NO EQUIVALENT TYPES, prod has diverged from ci ***
+			1.4*
 		Pangenome-4.1:
 			4.1 4.3*
-		Genome-11.0:
-			*** NO EQUIVALENT TYPES, prod has diverged from ci ***
+		Genome-11.1:
+			17.2*
 		GenomeComparison-2.1:
 			2.3*
 		Feature-3.1:
-			*** NO EQUIVALENT TYPES, prod has diverged from ci ***
+			7.1*
 		GenomeDomainData-4.1:
-			*** NO EQUIVALENT TYPES, prod has diverged from ci ***
+			4.1*
 		ContigSet-3.1:
 			3.3*
 
-appdev	mod ver: 1581380044782 (2020-02-11 00:14:04.782000+00:00)
+appdev	mod ver: 1682987822705 (2023-05-02 00:37:02.705000+00:00)
 	vs prod:
 		ProbabilisticAnnotation-3.2:
 			3.2*
@@ -43,8 +43,8 @@ appdev	mod ver: 1581380044782 (2020-02-11 00:14:04.782000+00:00)
 			1.3*
 		Pangenome-4.1:
 			4.1*
-		Genome-11.0:
-			11.0*
+		Genome-11.1:
+			11.1*
 		GenomeComparison-2.1:
 			2.1*
 		Feature-3.1:
@@ -55,39 +55,56 @@ appdev	mod ver: 1581380044782 (2020-02-11 00:14:04.782000+00:00)
 			3.1*
 	vs ci:
 		ProbabilisticAnnotation-3.2:
-			*** NO EQUIVALENT TYPES, appdev has diverged from ci ***
+			3.1*
 		MetagenomeAnnotation-1.3:
-			*** NO EQUIVALENT TYPES, appdev has diverged from ci ***
+			1.4*
 		Pangenome-4.1:
 			4.1 4.3*
-		Genome-11.0:
-			*** NO EQUIVALENT TYPES, appdev has diverged from ci ***
+		Genome-11.1:
+			17.2*
 		GenomeComparison-2.1:
 			2.3*
 		Feature-3.1:
-			*** NO EQUIVALENT TYPES, appdev has diverged from ci ***
+			7.1*
 		GenomeDomainData-4.1:
-			*** NO EQUIVALENT TYPES, appdev has diverged from ci ***
+			4.1*
 		ContigSet-3.1:
 			3.3*
 
-ci	mod ver: 1570570004208 (2019-10-08 21:26:44.208000+00:00)
-	vs prod:
-		GenomeComparison-2.3:
-			2.1*
-		Pangenome-4.3:
-			4.1*
-		ContigSet-3.3:
-			3.1*
-		Genome-17.0:
-			*** NO EQUIVALENT TYPES, ci has diverged from prod ***
+ci	mod ver: 1678392103491 (2023-03-09 20:01:43.491000+00:00)
 	vs appdev:
+		ProbabilisticAnnotation-3.1:
+			3.2*
+		MetagenomeAnnotation-1.4:
+			1.3*
 		GenomeComparison-2.3:
 			2.1*
 		Pangenome-4.3:
 			4.1*
 		ContigSet-3.3:
 			3.1*
-		Genome-17.0:
-			*** NO EQUIVALENT TYPES, ci has diverged from appdev ***
+		GenomeDomainData-4.1:
+			4.1*
+		Feature-7.1:
+			3.1*
+		Genome-17.2:
+			11.1*
+	vs prod:
+		ProbabilisticAnnotation-3.1:
+			3.2*
+		MetagenomeAnnotation-1.4:
+			1.3*
+		GenomeComparison-2.3:
+			2.1*
+		Pangenome-4.3:
+			4.1*
+		ContigSet-3.3:
+			3.1*
+		GenomeDomainData-4.1:
+			4.1*
+		Feature-7.1:
+			3.1*
+		Genome-17.2:
+			11.1*
 
+* = current version
