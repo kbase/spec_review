@@ -539,6 +539,44 @@ module KBaseGenomes {
     } GenomeQualityScore;
 
     /*
+    Lineage information for a genome.
+
+    lineage - the lineage string from the data source. For example, for GTDB:
+        d__Bacteria;p__Proteobacteria;c__Gammaproteobacteria;o__Enterobacterales;f__Enterobacteriaceae;g__Escherichia;s__Escherichia coli
+        For GTDB, if the lineage is not fully resolved, enter the string in GTDB style
+        including the unresolved ranks, e.g.
+        d__Bacteria;p__Proteobacteria;c__Gammaproteobacteria;o__Enterobacterales;f__;g__;s__
+    source_ver - the version of the source data. For example, for GTDB: 207.0
+    taxon_id - the ID of the taxon to which the genome belongs. For example, for GTDB:
+        f__Enterobacteriaceae. Note that while ideally this will be a leaf in the taxonomy tree,
+        that is not necessarily the case and the taxon_id may be an internal node.
+    source_id - the ID of the genome at the source. For example, for GTDB: RS_GCF_000566285.1.
+        In some cases this may be the same as the taxon_id. Expected to be present for genomes
+        that are part of the data set, but not for genomes that are inserted into the
+        taxonomy tree (by gtdb_tk, for instance).
+
+    @optional source_id
+    */
+    typedef structure {
+        string lineage;
+        string source_ver;
+        string taxon_id;
+        string source_id;
+    } Lineage;
+
+    /* 
+        Standard lineage providers - NCBI and GTDB.
+
+        More standard lineage providers may be added here as necessary.
+
+        @optional ncbi gtdb
+    */
+    typedef structure {
+        Lineage ncbi;
+        Lineage gtdb;
+    } StandardLineages;
+
+    /*
     Genome type -- annotated and assembled genome data.
 
     Field descriptions:
@@ -580,6 +618,9 @@ module KBaseGenomes {
         taxonomy - string - semicolon-delimited taxonomy lineage, in order of parent to child
         taxon_assignments - mapping of taxonomy namespace to taxon ID.
             example - {"ncbi": "286", "gtdb": "s__staphylococcus_devriesei"}
+        std_lineages - similar to taxon_assignments; contains lineage information for standard
+            lineages like NCBI and GTDB. Implemented as a struct rather than a mapping so that
+            the metadata annotation may be applied to the fields.
         gc_content - float - ratio of GC count to AT in the genome
         publications - tuple of (pubmedid, source, title, web_addr, year, authors, journal). See typedef above.
         ontology_events - A record of the service and method used for a set of
@@ -613,7 +654,7 @@ module KBaseGenomes {
     @optional ontology_events ontologies_present non_coding_features mrnas genome_type
     @optional genbank_handle_ref gff_handle_ref external_source_origination_date
     @optional release original_source_file_name notes quality_scores suspect assembly_ref
-    @optional taxon_ref taxon_assignments
+    @optional taxon_ref taxon_assignments std_lineages
 
     @metadata ws gc_content as GC content
     @metadata ws taxonomy as Taxonomy
@@ -631,6 +672,14 @@ module KBaseGenomes {
     @metadata ws num_contigs as Number contigs
     @metadata ws length(warnings) as Number of Genome Level Warnings
     @metadata ws suspect as Suspect Genome
+    @metadata ws std_lineages.ncbi.lineage as NCBI_lineage
+    @metadata ws std_lineages.ncbi.source_ver as NCBI_source_ver
+    @metadata ws std_lineages.ncbi.taxon_id as NCBI_taxon_id
+    @metadata ws std_lineages.ncbi.source_id as NCBI_source_id
+    @metadata ws std_lineages.gtdb.lineage as GTDB_lineage
+    @metadata ws std_lineages.gtdb.source_ver as GTDB_source_ver
+    @metadata ws std_lineages.gtdb.taxon_id as GTDB_taxon_id
+    @metadata ws std_lineages.gtdb.source_id as GTDB_source_id
     */
     typedef structure {
         Genome_id id;
@@ -649,6 +698,7 @@ module KBaseGenomes {
         source_id source_id;
         string md5;
         string taxonomy;
+        StandardLineages std_lineages;
         mapping<string, string> taxon_assignments;
         float gc_content;
         list<publication> publications;

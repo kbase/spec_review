@@ -72,7 +72,7 @@ typedef structure {
 
 
 /*
-Reference to a taxon object 
+Reference to a GenomeAnnotation object 
     @id ws KBaseGenomeAnnotations.GenomeAnnotation
 */
 typedef string genome_annotation_ref;
@@ -132,7 +132,43 @@ Reference to a handle to the Assembly Fasta file on shock
 */
 typedef string fasta_handle_ref;
 
+/*
+    Lineage information for an assembly.
 
+    lineage - the lineage string from the data source. For example, for GTDB:
+        d__Bacteria;p__Proteobacteria;c__Gammaproteobacteria;o__Enterobacterales;f__Enterobacteriaceae;g__Escherichia;s__Escherichia coli
+        For GTDB, if the lineage is not fully resolved, enter the string in GTDB style
+        including the unresolved ranks, e.g.
+        d__Bacteria;p__Proteobacteria;c__Gammaproteobacteria;o__Enterobacterales;f__;g__;s__
+    source_ver - the version of the source data. For example, for GTDB: 207.0
+    taxon_id - the ID of the taxon to which the assembly belongs. For example, for GTDB:
+        f__Enterobacteriaceae. Note that while ideally this will be a leaf in the taxonomy tree,
+        that is not necessarily the case and the taxon_id may be an internal node.
+    source_id - the ID of the assembly at the source. For example, for GTDB: RS_GCF_000566285.1.
+        In some cases this may be the same as the taxon_id. Expected to be present for assemblies
+        that are part of the source data set, but not for assemblies that are inserted into the
+        taxonomy tree (by gtdb_tk, for instance).
+
+    @optional source_id
+*/
+typedef structure {
+    string lineage;
+    string source_ver;
+    string taxon_id;
+    string source_id;
+} Lineage;
+
+/* 
+    Standard lineage providers - NCBI and GTDB.
+
+    More standard lineage providers may be added here as necessary.
+
+    @optional ncbi gtdb
+*/
+typedef structure {
+    Lineage ncbi;
+    Lineage gtdb;
+} StandardLineages;
 
 /*
 The Assembly object contains the information about an Assembly of Reads. The sequence data for this would be stored within a shock node.
@@ -149,8 +185,17 @@ assembly_stats assembly_stats; - should be in there, but needs to be flushed out
 @metadata ws name as Name
 @metadata ws dna_size as Size
 @metadata ws length(contigs) as N Contigs
+@metadata ws std_lineages.ncbi.lineage as NCBI_lineage
+@metadata ws std_lineages.ncbi.source_ver as NCBI_source_ver
+@metadata ws std_lineages.ncbi.taxon_id as NCBI_taxon_id
+@metadata ws std_lineages.ncbi.source_id as NCBI_source_id
+@metadata ws std_lineages.gtdb.lineage as GTDB_lineage
+@metadata ws std_lineages.gtdb.source_ver as GTDB_source_ver
+@metadata ws std_lineages.gtdb.taxon_id as GTDB_taxon_id
+@metadata ws std_lineages.gtdb.source_id as GTDB_source_id
 
-@optional name external_source external_source_id external_source_origination_date reads_handle_ref notes taxon_ref
+@optional name external_source external_source_id external_source_origination_date
+@optional reads_handle_ref notes taxon_ref std_lineages
 
 */
 typedef structure {
@@ -169,6 +214,7 @@ typedef structure {
   int num_contigs;
   string notes;
   taxon_ref taxon_ref;
+  StandardLineages std_lineages;
   mapping<string base, int count> base_counts;
 } Assembly;
 
@@ -544,14 +590,6 @@ typedef structure {
   alias_source_counts_map alias_source_counts_map;  
   interfeature_relationship_counts_map interfeature_relationship_counts_map;
 } GenomeAnnotation; 
-
-
-
-/* 
-Reference to an GenomeAnnotation object 
-    @id ws KBaseGenomeAnnotations.GenomeAnnotation
-*/ 
-typedef string genome_annotation_ref;
 
 
 /* 
